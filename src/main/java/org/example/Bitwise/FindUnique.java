@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Bitwise;
 
 public class FindUnique {
     public static void main(String[] args) {
