@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Recursion.SimpleRecursion;
 
 public class SumOfDigits {
     public static void main(String[] args) {

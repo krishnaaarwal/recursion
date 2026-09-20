@@ -1,4 +1,4 @@
-package org.example.Recursion;
+package org.example.Recursion.SimpleRecursion;
 
 public class ReverseNumber {
     public static void main(String[] args) {
