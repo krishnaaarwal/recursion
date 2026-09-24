@@ -2,8 +2,18 @@ package org.example.Recursion.SubsequenceAndStrings;
 
 public class SkipACharacter {
     public static void main(String[] args) {
+        //Approach 1
         System.out.println(skip("baccad",'c'));
+
+        //Approach 2
         System.out.println(skip("baccad","",'c'));
+
+        //Approach 3
+        char[] arr = "baccad".toCharArray();
+
+        skip(arr, 'a', 0, 0);
+
+        System.out.println(new String(arr));
     }
 
     // Approach 1
@@ -41,5 +51,20 @@ public class SkipACharacter {
 
         String newStr = str.substring(1,str.length());
         return skip(newStr,ans,target);
+    }
+
+    //Approach 3 (In place) - Since Strings are immutable it is not possible however create an array
+    static void skip(char[] arr, char target, int index, int write) {
+
+        if (index == arr.length) {
+            return;
+        }
+
+        if (arr[index] != target) {
+            arr[write] = arr[index];
+            write++;
+        }
+
+        skip(arr, target, index + 1, write);
     }
 }
