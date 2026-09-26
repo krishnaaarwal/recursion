@@ -4,31 +4,33 @@ import java.util.ArrayList;
 
 public class Permutation {
     public static void main(String[] args) {
-        System.out.println((permutation("","abc",0)));
+        System.out.println((permutation("","abcd",0)));
 
         ArrayList<String> ans = new ArrayList<>();
-        permutation("","abc",0,ans);
+        permutation("","abcd",0,ans);
         System.out.println(ans);
+
+        System.out.println((permutationCount("","abcd",0)));
     }
 
     //Printing
-//    static void permutation(String processed,String unprocessed,int index){
-//        if(index >=unprocessed.length()){
-//            System.out.println(processed);
-//            return;
-//        }
-//
-//        int n = processed.length() + 1;
-//        char c = unprocessed.charAt(index);
-//
-//        for(int i=0;i<n;i++){
-//            String first = processed.substring(0,i);
-//            String second = processed.substring(i,processed.length());
-//
-//            String permutation =  first + c + second;
-//            permutation(permutation,unprocessed,index+1);
-//        }
-//    }
+    static void permutationPrint(String processed,String unprocessed,int index){
+        if(index >=unprocessed.length()){
+            System.out.println(processed);
+            return;
+        }
+
+        int n = processed.length() + 1;
+        char c = unprocessed.charAt(index);
+
+        for(int i=0;i<n;i++){
+            String first = processed.substring(0,i);
+            String second = processed.substring(i,processed.length());
+
+            String permutation =  first + c + second;
+            permutationPrint(permutation,unprocessed,index+1);
+        }
+    }
 
     // Passing ArrayList as argument
     static ArrayList<String> permutation(String processed, String unprocessed, int index, ArrayList<String> ans){
@@ -73,5 +75,25 @@ public class Permutation {
             ans.addAll(prev);
         }
         return ans;
+    }
+
+    //Count
+        static int permutationCount(String processed,String unprocessed,int index){
+        if(index >=unprocessed.length()){
+            return 1;
+        }
+
+        int n = processed.length() + 1;
+        char c = unprocessed.charAt(index);
+
+        int count = 0;
+        for(int i=0;i<n;i++){
+            String first = processed.substring(0,i);
+            String second = processed.substring(i,processed.length());
+
+            String permutation =  first + c + second;
+            count = count + permutationCount(permutation,unprocessed,index+1);
+        }
+        return count;
     }
 }
