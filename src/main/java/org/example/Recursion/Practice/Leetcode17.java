@@ -64,7 +64,7 @@ public class Leetcode17 {
         for(int i=0;i<mapped.length();i++){
             char ch = mapped.charAt(i);
 
-            ans.addAll(letterCombinations(processed + ch,digits,index+1));
+            letterCombinations(processed + ch,digits,index+1,ans);
         }
         return ans;
     }
