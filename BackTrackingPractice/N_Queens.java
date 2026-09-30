@@ -63,6 +63,7 @@ public class N_Queens {
                 }else{
                     System.out.print("X");
                 }
+                System.out.print(" ");
             }
             System.out.println();
         }
