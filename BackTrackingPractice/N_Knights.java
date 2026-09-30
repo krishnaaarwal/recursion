@@ -1,6 +1,6 @@
 package BackTrackingPractice;
 
-public class NKnights {
+public class N_Knights {
     public static void main(String[] args) {
         int n = 3;
         boolean[][] board = new boolean[n][n];
