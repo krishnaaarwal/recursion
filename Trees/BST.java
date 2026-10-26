@@ -20,6 +20,13 @@ public class BST {
 
     private Node root;
 
+    public int height(Node node){
+        if(node == null){
+            return -1;
+        }
+        return node.height;
+    }
+
     public void insert(Scanner scanner) {
 
         System.out.println("Enter the Root Node: ");
@@ -58,9 +65,21 @@ public class BST {
             node.right = insert(node.right, value, depth + 1);
         }
 
+        node.height = Math.max(height(node.left),height(node.right))+1;
         return node;
     }
 
+    public boolean balanced(){
+        return balanced(root);
+    }
+
+    private boolean balanced(Node node){
+        if(node == null){
+            return true;
+        }
+
+        return Math.abs(height(node.left)-height(node.right)) <=1 && balanced(node.left) && balanced(node.right);
+    }
     // DISPLAY
     public void display() {
         display(root, 0);
