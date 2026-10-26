@@ -12,5 +12,6 @@ public class Main {
         BST bst = new BST();
         bst.insert(scanner);
         bst.display();
+        System.out.println(bst.balanced());
     }
 }

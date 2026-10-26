@@ -105,4 +105,19 @@ public class BST {
 
         display(node.left, level + 1);
     }
+
+    public void populateSorted(int[] nums){
+        populateSorted(nums,0,nums.length);
+    }
+
+    private void populateSorted(int[] nums,int s , int e){
+        if(s>=e){
+            return;
+        }
+
+        int mid = s + (e-s)/2;
+        this.insert(nums[mid]);
+        populateSorted(nums,s,mid);
+        populateSorted(nums,mid+1,e);
+    }
 }
