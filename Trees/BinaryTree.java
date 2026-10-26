@@ -53,16 +53,27 @@ public class BinaryTree {
     }
 
     public void display(){
-        display(root,"");
+        display(root,0);
     }
-    private void display(Node node,String indent){
+
+    private void display(Node node,int level){
         if(node==null){
             return;
         }
-        System.out.println(indent + node.value);
 
-        display(node.left,indent+"\t");
-        display(node.right,indent+"\t");
+        display(node.right,level+1);
+
+        if(level != 0){
+
+            for (int i = 0; i < level-1; i++) {
+                System.out.print("|\t\t");
+            }
+            System.out.println("------>" + node.value);
+        }else{
+            System.out.println(node.value);
+        }
+
+        display(node.left,level+1);
     }
 
 }
