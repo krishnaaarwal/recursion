@@ -116,8 +116,59 @@ public class BST {
         }
 
         int mid = s + (e-s)/2;
-        this.insert(nums[mid]);
+//        this.insert(nums[mid]);
         populateSorted(nums,s,mid);
         populateSorted(nums,mid+1,e);
+    }
+
+    //TRAVERSALS
+    public void preOrder(){
+        System.out.println(preOrder(root));
+    }
+
+    private String preOrder(Node root) {
+        if(root == null){
+            return "";
+        }
+
+        return root.value + "->" + preOrder(root.left) + preOrder(root.right);
+    }
+
+    public void inOrder(){
+        System.out.println(inOrder(root));
+    }
+
+    private String inOrder(Node root) {
+        if(root == null){
+            return "";
+        }
+
+        String left = inOrder(root.left);
+        String right = inOrder(root.right);
+
+        return left
+                +  "->"
+                + root.value
+                +  "->"
+                + right;
+    }
+
+    public void postOrder(){
+        System.out.println(postOrder(root));
+    }
+
+    private String postOrder(Node root) {
+        if(root == null){
+            return "";
+        }
+
+        String left = postOrder(root.left);
+        String right = postOrder(root.right);
+
+        return left
+                +  "->"
+                + right
+                +  "->"
+                + root.value;
     }
 }
