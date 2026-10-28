@@ -143,14 +143,7 @@ public class BST {
             return "";
         }
 
-        String left = inOrder(root.left);
-        String right = inOrder(root.right);
-
-        return left
-                +  "->"
-                + root.value
-                +  "->"
-                + right;
+        return inOrder(root.left) + root.value + "->"  + inOrder(root.right);
     }
 
     public void postOrder(){
@@ -162,13 +155,6 @@ public class BST {
             return "";
         }
 
-        String left = postOrder(root.left);
-        String right = postOrder(root.right);
-
-        return left
-                +  "->"
-                + right
-                +  "->"
-                + root.value;
+        return postOrder(root.left) + postOrder(root.right) +root.value + "->";
     }
 }
