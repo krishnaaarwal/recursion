@@ -1,20 +1,20 @@
 package Trees;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-//        BinaryTree tree = new BinaryTree();
-//        tree.populate(scanner);
-//        tree.display();
 
-        BST bst = new BST();
-        bst.insert(scanner);
-//        bst.display();
-//        System.out.println(bst.balanced());
-        bst.preOrder();
-        bst.postOrder();
-        bst.inOrder();
+        AVL avl = new AVL();
+
+        int[] nums = new int[10000];
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i + 1;
+        }
+
+        avl.populate(nums);
+
+        System.out.println("Number of nodes: " + nums.length);
+        System.out.println("Height of AVL tree: " + avl.height());
+        System.out.println("Is balanced: " + avl.balanced());
     }
 }
