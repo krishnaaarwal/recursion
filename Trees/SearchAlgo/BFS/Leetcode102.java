@@ -1,11 +1,11 @@
-package Trees.SearchAlgo;
+package Trees.SearchAlgo.BFS;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class BFS {
+public class Leetcode102 {
     private static class Node{
         private int value;
         Node left;
@@ -16,71 +16,8 @@ public class BFS {
         }
     }
 
-//    public void bfs(Node node, Deque<Node> queue){
-//        if(node == null){
-//            return;
-//        }
-//
-//        System.out.print(node.value + "->");
-//
-//        if (node.left != null) {
-//            queue.add(node.left);
-//        }
-//
-//        if (node.right != null) {
-//            queue.add(node.right);
-//        }
-//
-//        bfs(queue.poll(),queue);
-//    }
-
-    public ArrayList<Integer> bfs(Node node, Deque<Node> queue, ArrayList<Integer> array){
-        if(node == null){
-            return array;
-        }
-
-        array.add(node.value);
-
-        if (node.left != null) {
-            queue.add(node.left);
-        }
-
-        if (node.right != null) {
-            queue.add(node.right);
-        }
-
-        bfs(queue.poll(),queue,array);
-
-        return array;
-    }
-
-    public ArrayList<Integer> bfs(Node node, Deque<Node> queue) {
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        if (node == null) {
-            return ans;
-        }
-
-        ans.add(node.value);
-
-        if (node.left != null) {
-            queue.add(node.left);
-        }
-
-        if (node.right != null) {
-            queue.add(node.right);
-        }
-
-        if (!queue.isEmpty()) {
-            ans.addAll(bfs(queue.poll(), queue));
-        }
-
-        return ans;
-    }
-
-
     //LEETCODE - 102   (RECURSIVELY)
-    class Solution {
+
         public List<List<Integer>> levelOrder(Node root) {
             List<List<Integer>> ans = new ArrayList<>();
 
@@ -111,7 +48,7 @@ public class BFS {
             bfs(queue,ans);
         }
 
-        private List<Integer> level(List<Integer> list,Deque<Node> queue,int size){
+        private List<Integer> level(List<Integer> list, Deque<Node> queue, int size){
             if(size == 0){
                 return list;
             }
@@ -128,7 +65,7 @@ public class BFS {
             }
             return level(list, queue, size-1);
         }
-    }
+
 
 
     //LEETCODE - 102 (Iterative)
@@ -165,5 +102,4 @@ public class BFS {
 //        }
 //        return ans;
 //    }
-
 }
