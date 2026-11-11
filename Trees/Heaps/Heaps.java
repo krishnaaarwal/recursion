@@ -73,6 +73,16 @@ public class Heaps <T extends Comparable<T>>{
         }
     }
 
+    public ArrayList<T> heapSort() throws Exception{
+        //Keep removing till the list is Empty - to get sorted array. SIMPLE!
+        ArrayList<T> data = new ArrayList<>();
+
+        while(!list.isEmpty()){
+            data.add(this.removeFromRoot());
+        }
+        return data;
+    }
+
     private void swap(int first,int second){
         T temp = list.get(first);
         list.set(first,list.get(second));
