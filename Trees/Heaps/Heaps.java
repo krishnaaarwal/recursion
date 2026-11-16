@@ -73,6 +73,14 @@ public class Heaps <T extends Comparable<T>>{
         }
     }
 
+    public int size(){
+        return list.size();
+    }
+
+    public boolean isEmpty(){
+        return list.isEmpty();
+    }
+
     public ArrayList<T> heapSort() throws Exception{
         //Keep removing till the list is Empty - to get sorted array. SIMPLE!
         ArrayList<T> data = new ArrayList<>();
