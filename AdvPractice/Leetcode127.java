@@ -10,6 +10,66 @@ public class Leetcode127 {
 //        System.out.println(ladderLength(beginWord,endWord,wordList));
     }
 
+
+    // O(N ^ 2 * 26)  -- Time complexity
+        public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+
+            Set<String> set = new HashSet<>(wordList);
+
+            if (!set.contains(endWord)) {
+                return 0;
+            }
+
+            int length = 0;
+
+            Queue<String> queue = new LinkedList<>();
+            queue.offer(beginWord);
+
+            set.remove(beginWord);
+
+            while (!queue.isEmpty()) {
+
+                int size = queue.size();
+                length++;
+
+                for (int i = 0; i < size; i++) {
+
+                    String current = queue.poll();
+
+                    for (int j = 0; j < current.length(); j++) {
+
+                        char[] temp = current.toCharArray();
+
+                        for (char c = 'a'; c <= 'z'; c++) {
+
+                            temp[j] = c;
+
+                            String newWord = new String(temp);
+
+                            if (set.contains(newWord)) {
+
+                                if (newWord.equals(endWord)) {
+                                    return length + 1;
+                                }
+
+                                queue.offer(newWord);
+                                set.remove(newWord);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return 0;
+        }
+
+
+
+    /*
+
+    //THIS APPROACH - Check set and valid string. TIME COMPLEXITY - O(N ^2 * L)
+    //Comparing each word: O(L)
+
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if(!wordList.contains(endWord)){
             return 0;
@@ -64,6 +124,8 @@ public class Leetcode127 {
 
         return diff == 1;
     }
+
+    */
 
     //MY BAD AND WRONG APPROACH
 
