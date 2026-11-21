@@ -1,4 +1,4 @@
-package AdvPractice;
+package Practice;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ public class Leetcode127 {
     }
 
 
-    // O(N ^ 2 * 26)  -- Time complexity
+    // O(N * L ^ 2)  -- Time complexity
         public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 
             Set<String> set = new HashSet<>(wordList);
