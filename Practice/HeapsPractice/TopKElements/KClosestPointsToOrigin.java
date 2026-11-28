@@ -1,8 +1,5 @@
-package Practice.HeapsPractice;
+package Practice.HeapsPractice.TopKElements;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KClosestPointsToOrigin {

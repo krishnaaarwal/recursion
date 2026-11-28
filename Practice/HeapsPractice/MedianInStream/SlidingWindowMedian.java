@@ -1,4 +1,4 @@
-package Practice.HeapsPractice;
+package Practice.HeapsPractice.MedianInStream;
 
 import java.util.Collections;
 import java.util.HashMap;

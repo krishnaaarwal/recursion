@@ -1,4 +1,4 @@
-package Practice.HeapsPractice;
+package Practice.HeapsPractice.KwayMerge;
 
 
 import java.util.PriorityQueue;

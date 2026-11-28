@@ -1,4 +1,4 @@
-package Practice.HeapsPractice;
+package Practice.HeapsPractice.TopKElements;
 
 import java.util.PriorityQueue;
 
